@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Guwno 3"
-run/main_scene="res://cos.tscn"
+run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
 [rendering]
