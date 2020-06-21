@@ -16,7 +16,7 @@ var jump_buffer = 0
 var wall_jump_buffer = 0
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_key_pressed(KEY_ESCAPE) or fallen():
 		get_tree().reload_current_scene()
 	jump_buffer = jump_buffer - 1
 	wall_jump_buffer = wall_jump_buffer - 1
@@ -88,3 +88,7 @@ func adjust_motion():
 	else:
 		motion.x = 0
 		
+func fallen():
+	if self.get_position().y > 1000.0:
+		return true
+	return false
