@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 #all the variables
 const UP = Vector2(0, -1)
@@ -24,6 +25,7 @@ func _process(delta):
 	if is_on_floor():
 		if !Input.is_key_pressed(KEY_U):
 			current_jump_length = 0
+	check_enemy_collision()
 
 func _physics_process(delta):
 	var should_adjust = true
@@ -80,6 +82,14 @@ func adjust_motion():
 	else:
 		motion.x = 0
 		
+		
+func check_enemy_collision():
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.collider
+		if collider is simple_enemy_body or collider is simple_enemy_bullet:
+			get_tree().reload_current_scene()
+	
 func fallen():
 	if self.get_position().y > 1000.0:
 		return true

@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "simple_enemy_body",
+"language": "GDScript",
+"path": "res://enemies/simple_enemy/simple_AI.gd"
+}, {
+"base": "CollisionShape2D",
+"class": "simple_enemy_bullet",
+"language": "GDScript",
+"path": "res://enemies/simple_enemy/bullet_action.gd"
+} ]
 _global_script_class_icons={
-
+"Player": "",
+"simple_enemy_body": "",
+"simple_enemy_bullet": ""
 }
 
 [application]
